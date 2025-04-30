@@ -1,13 +1,13 @@
 //
-//  aiChattyUITestsLaunchTests.swift
-//  aiChattyUITests
+//  AIChattyUITestsLaunchTests.swift
+//  AIChattyUITests
 //
 //  Created by Valerio D'ALESSIO on 30/4/25.
 //
 
 import XCTest
 
-final class aiChattyUITestsLaunchTests: XCTestCase {
+final class AIChattyUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
