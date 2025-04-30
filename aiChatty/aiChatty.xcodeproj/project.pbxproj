@@ -24,9 +24,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01C486002DC2039A006BEEFB /* aiChatty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aiChatty.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		01C486102DC2039C006BEEFB /* aiChattyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = aiChattyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		01C4861A2DC2039C006BEEFB /* aiChattyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = aiChattyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		01C486002DC2039A006BEEFB /* AIChatty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIChatty.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01C486102DC2039C006BEEFB /* AIChattyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AIChattyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		01C4861A2DC2039C006BEEFB /* AiChattyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AiChattyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -85,9 +85,9 @@
 		01C486012DC2039A006BEEFB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				01C486002DC2039A006BEEFB /* aiChatty.app */,
-				01C486102DC2039C006BEEFB /* aiChattyTests.xctest */,
-				01C4861A2DC2039C006BEEFB /* aiChattyUITests.xctest */,
+				01C486002DC2039A006BEEFB /* AIChatty.app */,
+				01C486102DC2039C006BEEFB /* AIChattyTests.xctest */,
+				01C4861A2DC2039C006BEEFB /* AiChattyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,13 +95,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		01C485FF2DC2039A006BEEFB /* aiChatty */ = {
+		01C485FF2DC2039A006BEEFB /* AIChatty */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 01C486242DC2039C006BEEFB /* Build configuration list for PBXNativeTarget "aiChatty" */;
+			buildConfigurationList = 01C486242DC2039C006BEEFB /* Build configuration list for PBXNativeTarget "AIChatty" */;
 			buildPhases = (
 				01C485FC2DC2039A006BEEFB /* Sources */,
 				01C485FD2DC2039A006BEEFB /* Frameworks */,
 				01C485FE2DC2039A006BEEFB /* Resources */,
+				01D07C342DC211FB00D01DA5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -110,16 +111,16 @@
 			fileSystemSynchronizedGroups = (
 				01C486022DC2039A006BEEFB /* aiChatty */,
 			);
-			name = aiChatty;
+			name = AIChatty;
 			packageProductDependencies = (
 			);
 			productName = aiChatty;
-			productReference = 01C486002DC2039A006BEEFB /* aiChatty.app */;
+			productReference = 01C486002DC2039A006BEEFB /* AIChatty.app */;
 			productType = "com.apple.product-type.application";
 		};
-		01C4860F2DC2039C006BEEFB /* aiChattyTests */ = {
+		01C4860F2DC2039C006BEEFB /* AIChattyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 01C486272DC2039C006BEEFB /* Build configuration list for PBXNativeTarget "aiChattyTests" */;
+			buildConfigurationList = 01C486272DC2039C006BEEFB /* Build configuration list for PBXNativeTarget "AIChattyTests" */;
 			buildPhases = (
 				01C4860C2DC2039C006BEEFB /* Sources */,
 				01C4860D2DC2039C006BEEFB /* Frameworks */,
@@ -133,16 +134,16 @@
 			fileSystemSynchronizedGroups = (
 				01C486132DC2039C006BEEFB /* aiChattyTests */,
 			);
-			name = aiChattyTests;
+			name = AIChattyTests;
 			packageProductDependencies = (
 			);
 			productName = aiChattyTests;
-			productReference = 01C486102DC2039C006BEEFB /* aiChattyTests.xctest */;
+			productReference = 01C486102DC2039C006BEEFB /* AIChattyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		01C486192DC2039C006BEEFB /* aiChattyUITests */ = {
+		01C486192DC2039C006BEEFB /* AiChattyUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 01C4862A2DC2039C006BEEFB /* Build configuration list for PBXNativeTarget "aiChattyUITests" */;
+			buildConfigurationList = 01C4862A2DC2039C006BEEFB /* Build configuration list for PBXNativeTarget "AiChattyUITests" */;
 			buildPhases = (
 				01C486162DC2039C006BEEFB /* Sources */,
 				01C486172DC2039C006BEEFB /* Frameworks */,
@@ -156,11 +157,11 @@
 			fileSystemSynchronizedGroups = (
 				01C4861D2DC2039C006BEEFB /* aiChattyUITests */,
 			);
-			name = aiChattyUITests;
+			name = AiChattyUITests;
 			packageProductDependencies = (
 			);
 			productName = aiChattyUITests;
-			productReference = 01C4861A2DC2039C006BEEFB /* aiChattyUITests.xctest */;
+			productReference = 01C4861A2DC2039C006BEEFB /* AiChattyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -200,9 +201,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				01C485FF2DC2039A006BEEFB /* aiChatty */,
-				01C4860F2DC2039C006BEEFB /* aiChattyTests */,
-				01C486192DC2039C006BEEFB /* aiChattyUITests */,
+				01C485FF2DC2039A006BEEFB /* AIChatty */,
+				01C4860F2DC2039C006BEEFB /* AIChattyTests */,
+				01C486192DC2039C006BEEFB /* AiChattyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -231,6 +232,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		01D07C342DC211FB00D01DA5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Support for SwiftUI Preview\nif [[\"$(uname -m)\" == arm64 ]]; then\n\texport PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\n# Check if running in a SwiftUI preview\nif [ \"$XCODE_RUNNING_FOR_PREVIEWS\" != \"1\" ]; then\n\tif which swiftlint > /dev/null; then\n\t\tswiftlint # Uncomment if you want to auto-fix: swiftlint --fix &&\n\telse\n\t\techo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n\tfi\nelse\n\t# Running Xcode Cloud\n\techo \"Running in Xcode Cloud. Skipping SwiftLint.\"\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		01C485FC2DC2039A006BEEFB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -258,12 +281,12 @@
 /* Begin PBXTargetDependency section */
 		01C486122DC2039C006BEEFB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 01C485FF2DC2039A006BEEFB /* aiChatty */;
+			target = 01C485FF2DC2039A006BEEFB /* AIChatty */;
 			targetProxy = 01C486112DC2039C006BEEFB /* PBXContainerItemProxy */;
 		};
 		01C4861C2DC2039C006BEEFB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 01C485FF2DC2039A006BEEFB /* aiChatty */;
+			target = 01C485FF2DC2039A006BEEFB /* AIChatty */;
 			targetProxy = 01C4861B2DC2039C006BEEFB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -306,7 +329,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -370,7 +393,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -401,7 +424,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"aiChatty/Preview Content\"";
 				DEVELOPMENT_TEAM = P86932NPCW;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = aiChatty;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -437,7 +463,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"aiChatty/Preview Content\"";
 				DEVELOPMENT_TEAM = P86932NPCW;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = aiChatty;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -548,7 +577,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		01C486242DC2039C006BEEFB /* Build configuration list for PBXNativeTarget "aiChatty" */ = {
+		01C486242DC2039C006BEEFB /* Build configuration list for PBXNativeTarget "AIChatty" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				01C486252DC2039C006BEEFB /* Debug */,
@@ -557,7 +586,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		01C486272DC2039C006BEEFB /* Build configuration list for PBXNativeTarget "aiChattyTests" */ = {
+		01C486272DC2039C006BEEFB /* Build configuration list for PBXNativeTarget "AIChattyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				01C486282DC2039C006BEEFB /* Debug */,
@@ -566,7 +595,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		01C4862A2DC2039C006BEEFB /* Build configuration list for PBXNativeTarget "aiChattyUITests" */ = {
+		01C4862A2DC2039C006BEEFB /* Build configuration list for PBXNativeTarget "AiChattyUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				01C4862B2DC2039C006BEEFB /* Debug */,
