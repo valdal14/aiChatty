@@ -14,18 +14,10 @@ struct AppView: View {
 		AppViewBuilder(
 			showTabBar: showTabBar,
 			tabBarView: ({
-				ZStack {
-					Color.red
-					Text("TabBar")
-				}
-				.transition(.move(edge: .trailing))
+				TabBarView()
 			}),
 			onboardingView: ({
-				ZStack {
-					Color.blue
-					Text("Onboarding")
-				}
-				.transition(.move(edge: .leading))
+				WelcomeView()
 			})
 		)
     }
