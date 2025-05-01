@@ -9,6 +9,12 @@ import SwiftUI
 
 struct ProfileView: View {
 	@State private var showSettings: Bool = false
+
+	private struct Constants {
+		static let settingsButtonImage: String = "gear"
+		static let settingButtonText: String = "Settings"
+	}
+
 	var body: some View {
 		NavigationStack {
 			Text("Profile")
@@ -20,7 +26,7 @@ struct ProfileView: View {
 				}
 		}
 		.sheet(isPresented: $showSettings) {
-			Text("Settings View")
+			SettingsView()
 		}
 	}
 
@@ -29,9 +35,10 @@ struct ProfileView: View {
 		Button(action: ({
 			onSettingsButtonPressed()
 		}), label: ({
-			Image(systemName: "gear")
+			Image(systemName: Constants.settingsButtonImage)
 				.font(.headline)
 		}))
+		.accessibilityIdentifier(Self.settingsButtonIdentifier)
 	}
 }
 
@@ -40,6 +47,11 @@ private extension ProfileView {
 	func onSettingsButtonPressed() {
 		showSettings.toggle()
 	}
+}
+
+// MARK: - ProfileView Accessibility Helpers
+private extension ProfileView {
+	static let settingsButtonIdentifier: String = "\(Constants.settingButtonText) Button"
 }
 
 #Preview {
