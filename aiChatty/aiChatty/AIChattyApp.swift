@@ -11,7 +11,7 @@ import SwiftUI
 struct AIChattyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+			AppView(appState: .init(showTabBar: UserDefaults.showTabBarView))
         }
     }
 }
