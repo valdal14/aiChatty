@@ -10,6 +10,7 @@ import SwiftUI
 struct AppButton: View {
 	let title: String
 	let colour: Color
+	@Binding var isActionCompleted: Bool
 	let onTap: () -> Void
 
 	private struct Constants {
@@ -21,9 +22,15 @@ struct AppButton: View {
 		"\(title) button"
 	}
 
-	init(title: String, colour: Color = .accent, onTap: @escaping () -> Void) {
+	init(
+		title: String,
+		colour: Color = .accent,
+		isActionCompleted: Binding<Bool> = .constant(false),
+		onTap: @escaping () -> Void
+	) {
 		self.title = title
 		self.colour = colour
+		self._isActionCompleted = isActionCompleted
 		self.onTap = onTap
 	}
 
@@ -34,6 +41,7 @@ struct AppButton: View {
 			buttonStyleView
 		}
 		.accessibilityIdentifier(accessibilityLabel)
+		.disabled(isActionCompleted ? true : false)
 	}
 
 	var buttonStyleView: some View {
@@ -45,9 +53,16 @@ struct AppButton: View {
 				maxHeight: Constants.buttonHeight
 			)
 			.overlay {
-				Text(title)
-					.font(.headline)
-					.foregroundStyle(.white)
+				ZStack {
+					if isActionCompleted {
+						ProgressView()
+							.tint(.white)
+					} else {
+						Text(title)
+							.font(.headline)
+							.foregroundStyle(.white)
+					}
+				}
 			}
 	}
 }

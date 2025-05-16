@@ -30,7 +30,7 @@ struct SelectColorOnboardingView: View {
 			listOfColors
 		}
 		.navigationDestination(isPresented: $isNavigating) {
-			FinalOnboardingView()
+			FinalOnboardingView(colour: selectedColour)
 				.transition(.move(edge: .trailing))
 		}
 		.scrollIndicators(.hidden)
@@ -94,5 +94,8 @@ private extension SelectColorOnboardingView {
 }
 
 #Preview {
-    SelectColorOnboardingView()
+	NavigationStack {
+		SelectColorOnboardingView()
+	}
+	.environment(AppState())
 }
