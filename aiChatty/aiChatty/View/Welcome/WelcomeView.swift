@@ -34,7 +34,7 @@ struct WelcomeView: View {
 			.navigationDestination(
 				isPresented: $isNavigating,
 				destination: ({
-					FinalOnboardingView()
+					IntroOnboardingView()
 						.transition(.move(edge: .trailing))
 				})
 			)
