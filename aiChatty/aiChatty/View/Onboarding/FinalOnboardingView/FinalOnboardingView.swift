@@ -45,6 +45,7 @@ struct FinalOnboardingView: View {
 			)
 		}
 		.padding(Constants.vStackPadding)
+		.toolbar(.hidden, for: .navigationBar)
     }
 }
 

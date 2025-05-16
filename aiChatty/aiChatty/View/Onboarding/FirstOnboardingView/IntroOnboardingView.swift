@@ -61,6 +61,7 @@ struct IntroOnboardingView: View {
 			SelectColorOnboardingView()
 				.transition(.move(edge: .trailing))
 		}
+		.toolbar(.hidden, for: .navigationBar)
     }
 
 	// MARK: - View Helpers

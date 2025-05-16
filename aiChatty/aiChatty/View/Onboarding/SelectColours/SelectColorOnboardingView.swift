@@ -35,6 +35,7 @@ struct SelectColorOnboardingView: View {
 		}
 		.scrollIndicators(.hidden)
 		.animation(.smooth, value: selectedColour)
+		.toolbar(.hidden, for: .navigationBar)
 
 		presentButton()
 			.padding()
