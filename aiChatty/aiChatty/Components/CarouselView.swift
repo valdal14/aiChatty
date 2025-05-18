@@ -7,37 +7,36 @@
 
 import SwiftUI
 
-struct CarouselView: View {
+struct CarouselView<Content: View, K: Collectionable>: View {
+	// MARK: UI Constants
+	let vStackSpacing: CGFloat = 12
+	let carouselItemHeight: CGFloat = 200
+	let hStackSpacing: CGFloat = 0
+	let circleSpacing: CGFloat = 8
+	let circleOpacity: Double = 0.5
+	let circleWidth: CGFloat = 10
+	// MARK: - Properties
 	let screenWidth: CGFloat = UIScreen.main.bounds.width
-	let items: [AvatarModel]
-	@State private var avatarSelection: AvatarModel?
-
-	private struct Constants {
-		static let vStackSpacing: CGFloat = 12
-		static let carouselItemHeight: CGFloat = 200
-		static let hStackSpacing: CGFloat = 0
-		static let circleSpacing: CGFloat = 8
-		static let circleOpacity: Double = 0.5
-		static let circleWidth: CGFloat = 10
-	}
-
+	let items: [K]
+	@State private var selection: K?
+	@ViewBuilder var content: (K) -> Content
+	// MARK: - View's Body
     var body: some View {
-		VStack(spacing: Constants.vStackSpacing) {
+		VStack(spacing: vStackSpacing) {
 			scrollView
 			circleIndicators
 		}
     }
-
 	// MARK: - View Helpers
 	var scrollView: some View {
 		ScrollView(.horizontal) {
 			lazyContainerView
 		}
-		.frame(height: Constants.carouselItemHeight)
+		.frame(height: carouselItemHeight)
 		.scrollIndicators(.hidden)
 		.scrollTargetLayout()
 		.scrollTargetBehavior(.paging)
-		.scrollPosition(id: $avatarSelection)
+		.scrollPosition(id: $selection)
 		.onChange(of: items.count, { _, _ in
 			setCircleIndicator()
 		})
@@ -47,49 +46,73 @@ struct CarouselView: View {
 	}
 
 	var lazyContainerView: some View {
-		LazyHStack(spacing: Constants.hStackSpacing) {
+		LazyHStack(spacing: hStackSpacing) {
 			itemView
 		}
 	}
 
 	var itemView: some View {
 		ForEach(items) { item in
-			HeroCellView(
-				title: item.name,
-				subTitle: item.characterDescription,
-				imageURL: item.profileImageName,
-				width: screenWidth
-			)
-			.scrollTransition(.interactive.threshold(.visible(0.95)), axis: .horizontal, transition: { content, phase in
-				content
-					.scaleEffect(phase.isIdentity ? 1 : 0.9)
-			})
-			.containerRelativeFrame(.horizontal, alignment: .center)
-			.id(item)
+			renderContent(item)
 		}
 	}
 
 	var circleIndicators: some View {
-		HStack(spacing: Constants.circleSpacing) {
-			ForEach(items) { item in
-				Circle()
-					.fill(item == avatarSelection ? .accent : .secondary.opacity(Constants.circleOpacity))
-					.frame(width: Constants.circleWidth)
-			}
+		HStack(spacing: circleSpacing) {
+			circleView
 		}
-		.animation(.linear, value: avatarSelection)
+		.animation(.linear, value: selection)
+	}
+
+	var circleView: some View {
+		ForEach(items) { item in
+			renderDotIndicator(item)
+		}
 	}
 }
 
 // MARK: - CarouselView Extension
 private extension CarouselView {
 	func setCircleIndicator() {
-		if avatarSelection == nil || avatarSelection == items.last {
-			avatarSelection = items.first
+		if selection == nil || selection == items.last {
+			selection = items.first
 		}
+	}
+
+	@ViewBuilder
+	func renderDotIndicator(_ item: K) -> some View {
+		Circle()
+			.fill(item == selection ? .accent : .secondary.opacity(circleOpacity))
+			.frame(width: circleWidth)
+	}
+
+	@ViewBuilder
+	func renderContent(_ item: K) -> some View {
+		content(item)
+			.scrollTransition(
+				.interactive.threshold(.visible(0.95)),
+				axis: .horizontal,
+				transition: ({ content, phase in
+					content
+						.scaleEffect(phase.isIdentity ? 1 : 0.9)
+				})
+			)
+			.containerRelativeFrame(.horizontal, alignment: .center)
+			.id(item)
 	}
 }
 
+// MARK: - CarouselView's Preview
 #Preview {
-	CarouselView(items: AvatarModel.mocks)
+	CarouselView<HeroCellView, AvatarModel>(
+		items: AvatarModel.mocks,
+		content: ({ item in
+			HeroCellView(
+				title: item.name,
+				subTitle: item.characterDescription,
+				imageURL: item.profileImageName,
+				width: UIScreen.main.bounds.width
+			)
+		})
+	)
 }

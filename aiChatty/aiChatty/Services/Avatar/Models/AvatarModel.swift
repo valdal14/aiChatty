@@ -7,6 +7,8 @@
 
 import Foundation
 
+protocol Collectionable: Identifiable, Hashable {}
+
 enum CharacterOption: String {
 	case man, woman, alien, dog, cat
 
@@ -31,7 +33,7 @@ enum CharacterLocation: String {
 	}
 }
 
-struct AvatarModel: Hashable, Identifiable {
+struct AvatarModel: Collectionable {
 	let id: UUID
 	let name: String?
 	let characterOption: CharacterOption?
