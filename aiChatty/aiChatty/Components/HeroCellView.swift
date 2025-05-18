@@ -29,7 +29,7 @@ struct HeroCellView: View {
 			if let imageURL {
 				ImageLoaderView(
 					imageURL: imageURL,
-					resizeMode: .fit
+					resizeMode: .fill
 				)
 				.clipShape(RoundedRectangle(cornerRadius: Constants.radius))
 			} else {
