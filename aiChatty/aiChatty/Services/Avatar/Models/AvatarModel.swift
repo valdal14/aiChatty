@@ -31,7 +31,7 @@ enum CharacterLocation: String {
 	}
 }
 
-struct AvatarModel: Identifiable {
+struct AvatarModel: Hashable, Identifiable {
 	let id: UUID
 	let name: String?
 	let characterOption: CharacterOption?
