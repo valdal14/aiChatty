@@ -13,4 +13,16 @@ extension View {
 			.listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
 			.listRowBackground(Color.clear)
 	}
+
+	public func cellBackground() -> some View {
+		self
+			.background(
+				LinearGradient(
+					colors: [.black.opacity(0), .black.opacity(0.3), .black.opacity(0.4)],
+					startPoint: .top,
+					endPoint: .bottom
+				)
+				.clipShape(RoundedRectangle(cornerRadius: 16))
+			)
+	}
 }

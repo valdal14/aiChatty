@@ -9,7 +9,7 @@ import Foundation
 
 protocol Collectionable: Identifiable, Hashable {}
 
-enum CharacterOption: String {
+enum CharacterOption: String, CaseIterable {
 	case man, woman, alien, dog, cat
 
 	static var `default`: Self {
