@@ -25,4 +25,11 @@ extension View {
 				.clipShape(RoundedRectangle(cornerRadius: 16))
 			)
 	}
+
+	public func profileCellShape(frameSize: CGFloat, radius: CGFloat) -> some View {
+		self
+			.aspectRatio(1, contentMode: .fit)
+			.frame(width: frameSize)
+			.cornerRadius(radius)
+	}
 }

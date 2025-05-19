@@ -15,6 +15,15 @@ enum CharacterOption: String, CaseIterable {
 	static var `default`: Self {
 		return .man
 	}
+
+	var startWithAVowell: Bool {
+		switch self {
+		case .alien:
+			return true
+		default:
+			return false
+		}
+	}
 }
 
 enum CharacterAction: String {
@@ -65,7 +74,11 @@ struct AvatarModel: Collectionable {
 
 	var characterDescription: String {
 		if let action = self.characterAction, let description = self.characterLocation, let option = self.characterOption {
-			return "A \(option.rawValue) that is \(action.rawValue) in the middle of a \(description.rawValue)"
+			if option.startWithAVowell {
+				return "An \(option.rawValue) that is \(action.rawValue) in the middle of a \(description.rawValue)"
+			} else {
+				return "A \(option.rawValue) that is \(action.rawValue) in the middle of a \(description.rawValue)"
+			}
 		} else {
 			let first: String = "A \(CharacterOption.default.rawValue)"
 			let second: String = " that is \(CharacterAction.default.rawValue)"

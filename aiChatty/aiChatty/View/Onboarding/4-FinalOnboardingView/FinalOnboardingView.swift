@@ -54,7 +54,6 @@ private extension FinalOnboardingView {
 	func onFinishButtonPressed() {
 		Task {
 			isSetupCompleted = true
-			#warning("Replace with the backend call")
 			try await Task.sleep(for: .seconds(3))
 			isSetupCompleted = false
 			rootAppState.updateViewState(showTabBarView: true)

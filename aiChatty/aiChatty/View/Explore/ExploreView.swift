@@ -12,12 +12,14 @@ struct ExploreView: View {
 	let screenWidth: CGFloat = UIScreen.main.bounds.width - 50
 	@State private var avatars: [AvatarModel] = AvatarModel.mocks
 	@State private var categories: [CharacterOption] = CharacterOption.allCases
+	@State private var popularAvatars: [AvatarModel] = AvatarModel.mocks
 
 	var body: some View {
 		NavigationStack {
 			List {
 				featuredSection
 				categorySection
+				popularSection
 			}
 			.navigationTitle("Explore")
 		}
@@ -31,7 +33,7 @@ private extension ExploreView {
 			carouselView
 		} header: {
 			AppTextView(
-				text: "Featured Avatars",
+				text: "Featured",
 				font: .headline,
 				weight: .heavy,
 				color: .secondary
@@ -45,11 +47,14 @@ private extension ExploreView {
 				items: avatars,
 				content: ({ avatar in
 					HeroCellView(
-						title: avatar.name,
+						title: avatar.name ?? "",
 						subTitle: avatar.characterDescription,
 						imageURL: avatar.profileImageName,
 						width: screenWidth
 					)
+					.anyButton(.plain, action: ({
+						print("Tapped Carousel Cell")
+					}))
 				})
 			)
 		}
@@ -101,10 +106,40 @@ private extension ExploreView {
 				title: option.rawValue.capitalized,
 				imageName: GlobalConstants.randomImageURL
 			)
+			.anyButton(.plain, action: ({
+				print("Tapped Category Cell")
+			}))
 		}
 	}
 }
 
+// MARK: - ExploreView Popular Section
+private extension ExploreView {
+	var popularSection: some View {
+		Section {
+			ForEach(popularAvatars) { avatar in
+				PopularCellView(
+					title: avatar.name,
+					subTitle: avatar.characterDescription,
+					imageName: avatar.profileImageName
+				)
+				.anyButton(.highlight, action: ({
+					print("Tapped Popular Cell")
+				}))
+				.listRowFormatting()
+			}
+		} header: {
+			AppTextView(
+				text: "Popular",
+				font: .headline,
+				weight: .heavy,
+				color: .secondary
+			)
+		}
+	}
+}
+
+// MARK: - ExploreView's Preview
 #Preview {
 	ExploreView()
 }

@@ -62,7 +62,7 @@ struct CategoryCellView: View {
 			title: "Avatar",
 			imageName: GlobalConstants.randomImageURL
 		)
-		
+
 		CategoryCellView(
 			title: "Avatar",
 			imageName: GlobalConstants.randomImageURL,
