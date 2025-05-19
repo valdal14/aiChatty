@@ -13,43 +13,42 @@ struct ExploreView: View {
 	let avatars: [AvatarModel] = AvatarModel.mocks
 	var body: some View {
 		NavigationStack {
-			ScrollView(.vertical) {
-				carouselHeader
-				carouselView
+			List {
+				featuredSection
 			}
+			.navigationTitle("Explore")
 		}
 	}
 
 	// MARK: - ExploreView UI Helpers
-	var carouselHeader: some View {
-		HStack {
+	private var featuredSection: some View {
+		Section {
+			carouselView
+		} header: {
 			AppTextView(
-				text: "FEATURED AVATARS",
+				text: "Featured Avatars",
 				font: .headline,
 				weight: .heavy,
 				color: .secondary
 			)
-			Image(systemName: "tortoise.fill")
-				.aspectRatio(contentMode: .fit)
-				.foregroundStyle(.secondary)
-				.font(.headline)
-			Spacer()
 		}
-		.padding()
 	}
-	var carouselView: some View {
-		CarouselView(
-			items: avatars,
-			content: ({ avatar in
-				HeroCellView(
-					title: avatar.name,
-					subTitle: avatar.characterDescription,
-					imageURL: avatar.profileImageName,
-					width: screenWidth
-				)
-			})
-		)
-		.navigationTitle("Explore")
+
+	private var carouselView: some View {
+		ZStack {
+			CarouselView(
+				items: avatars,
+				content: ({ avatar in
+					HeroCellView(
+						title: avatar.name,
+						subTitle: avatar.characterDescription,
+						imageURL: avatar.profileImageName,
+						width: screenWidth
+					)
+				})
+			)
+		}
+		.listRowFormatting()
 		.scrollIndicators(.hidden)
 	}
 }
