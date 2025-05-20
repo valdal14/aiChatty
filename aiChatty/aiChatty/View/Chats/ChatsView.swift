@@ -19,6 +19,7 @@ struct ChatsView: View {
 						currentUserId: .init(),
 						chat: chats[chatId],
 						getAvatar: ({
+							try? await Task.sleep(for: .seconds(2))
 							return .mocks[chatId]
 						}),
 						getLastChatMessage: ({
