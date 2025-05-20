@@ -34,7 +34,6 @@ struct ProfileView: View {
 		}
 		.sheet(isPresented: $showSettings) {
 			SettingsView()
-				.environment(AppState())
 		}
 		.fullScreenCover(isPresented: $showAddAvatar) {
 			Text("Add new avatar")
