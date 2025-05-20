@@ -111,7 +111,7 @@ private extension ChatRowCellView {
 				subHeadline: "I hope you are doing well",
 				newChat: true
 			).listRowFormatting()
-			
+
 			ChatRowCellView(
 				imageName: nil,
 				headline: "Lisa",

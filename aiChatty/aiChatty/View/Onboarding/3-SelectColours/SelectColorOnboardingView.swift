@@ -21,7 +21,7 @@ struct SelectColorOnboardingView: View {
 	]
 
 	struct Constants {
-		static let title: String = "Select a profile color"
+		static let title: String = "Select a profile colour"
 		static let vGridPadding: CGFloat = 24
 	}
 
