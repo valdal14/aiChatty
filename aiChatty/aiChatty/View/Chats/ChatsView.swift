@@ -13,8 +13,22 @@ struct ChatsView: View {
 	var body: some View {
 		NavigationStack {
 			List {
-				ForEach(chats) { chat in
-					Text(chat.id.uuidString.trimmingCharacters(in: .alphanumerics))
+				ForEach(chats.indices, id: \.self) { chatId in
+					ChatRowCellViewBuilder(
+						// FIXME: Add UUID
+						currentUserId: .init(),
+						chat: chats[chatId],
+						getAvatar: ({
+							return .mocks[chatId]
+						}),
+						getLastChatMessage: ({
+							return .mocks[chatId]
+						})
+					)
+					.anyButton(.highlight, action: ({
+						print("Clicked")
+					}))
+					.listRowFormatting()
 				}
 			}
 		}

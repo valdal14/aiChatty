@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct ChatMessageModel: Identifiable {
+struct ChatMessageModel: Identifiable, Equatable {
 	let id: UUID
 	let chatId: UUID
 	let authorId: UUID?
 	let content: String?
-	let seenByIds: [String]?
+	let seenByIds: [UUID]?
 	let dateCreated: Date?
 
 	init(
@@ -20,7 +20,7 @@ struct ChatMessageModel: Identifiable {
 		chatId: UUID,
 		authorId: UUID?,
 		content: String?,
-		seenByIds: [String]?,
+		seenByIds: [UUID]?,
 		dateCreated: Date?
 	) {
 		self.id = id
@@ -37,25 +37,25 @@ extension ChatMessageModel {
 	static let mock: ChatMessageModel = mocks.first!
 	static let mocks: [ChatMessageModel] = [
 		ChatMessageModel(
-			id: UUID(uuidString: "aaaa1111-1111-1111-1111-111111111111")!,
-			chatId: UUID(uuidString: "11111111-1111-1111-1111-111111111111")!,
-			authorId: UUID(uuidString: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"),
+			id: .init(),
+			chatId: .init(),
+			authorId: .init(),
 			content: "Hello there!",
-			seenByIds: ["user-1", "user-2"],
+			seenByIds: [.init(), .init()],
 			dateCreated: Date(timeIntervalSinceNow: -3000)  // 50 minutes ago
 		),
 		ChatMessageModel(
-			id: UUID(uuidString: "bbbb2222-2222-2222-2222-222222222222")!,
-			chatId: UUID(uuidString: "22222222-2222-2222-2222-222222222222")!,
-			authorId: UUID(uuidString: "cccccccc-cccc-cccc-cccc-cccccccccccc"),
+			id: .init(),
+			chatId: .init(),
+			authorId: .init(),
 			content: "How are you doing today?",
-			seenByIds: ["user-1"],
+			seenByIds: [.init()],
 			dateCreated: Date(timeIntervalSinceNow: -2400)  // 40 minutes ago
 		),
 		ChatMessageModel(
-			id: UUID(uuidString: "cccc3333-3333-3333-3333-333333333333")!,
-			chatId: UUID(uuidString: "33333333-3333-3333-3333-333333333333")!,
-			authorId: UUID(uuidString: "eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee"),
+			id: .init(),
+			chatId: .init(),
+			authorId: .init(),
 			content: "Don't forget the meeting at 3PM.",
 			seenByIds: [],
 			dateCreated: Date(timeIntervalSinceNow: -1800)  // 30 minutes ago
