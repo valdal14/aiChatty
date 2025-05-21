@@ -8,10 +8,30 @@
 import SwiftUI
 
 struct ChatsView: View {
+	@State private var chats: [ChatModel] = ChatModel.mocks
+
 	var body: some View {
 		NavigationStack {
-			Text("Chats")
-				.navigationTitle("Chats")
+			List {
+				ForEach(chats.indices, id: \.self) { chatId in
+					ChatRowCellViewBuilder(
+						// FIXME: Add UUID
+						currentUserId: .init(),
+						chat: chats[chatId],
+						getAvatar: ({
+							try? await Task.sleep(for: .seconds(2))
+							return .mocks[chatId]
+						}),
+						getLastChatMessage: ({
+							return .mocks[chatId]
+						})
+					)
+					.anyButton(.highlight, action: ({
+						print("Clicked")
+					}))
+					.listRowFormatting()
+				}
+			}
 		}
 	}
 }

@@ -10,6 +10,13 @@ import SwiftUI
 struct AppLinkView: View {
 	let appURL: URL
 	let urlText: String
+	let font: Font
+
+	init(appURL: URL, urlText: String, font: Font = .body) {
+		self.appURL = appURL
+		self.urlText = urlText
+		self.font = font
+	}
 
 	var accessibilityText: String {
 		"\(urlText) link"
@@ -20,6 +27,7 @@ struct AppLinkView: View {
 			destination: appURL,
 			label: ({
 				Text(urlText)
+					.font(font)
 			})
 		)
 		.accessibilityIdentifier(accessibilityText)

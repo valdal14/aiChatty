@@ -10,6 +10,7 @@ import SwiftUI
 struct WelcomeView: View {
 	@State private var isNavigating: Bool = false
 	@State var randomImage: String = GlobalConstants.randomImageURL
+	@State private var showSignInView: Bool = false
 
 	struct Constants {
 		static let buttonTitle: String = "Get Started"
@@ -20,6 +21,8 @@ struct WelcomeView: View {
 		static let privacyMessage: String = "Terms of Service"
 		static let separatorText: String = " | "
 		static let spacing: CGFloat = 8
+		static let appleSignInText: String = "Sign in"
+		static let appleSignInSubText: String = "Connect to an existing Apple's account."
 	}
 
     var body: some View {
@@ -41,6 +44,15 @@ struct WelcomeView: View {
 		}
 		.animation(.smooth, value: isNavigating)
 		.transition(.move(edge: .leading))
+		.sheet(
+			isPresented: $showSignInView,
+			content: {
+				CreateAccountView(
+					title: Constants.appleSignInText,
+					subTitle: Constants.appleSignInSubText
+				)
+				.presentationDetents([.medium])
+		})
     }
 
 	// MARK: - View Helpers
@@ -71,7 +83,7 @@ struct WelcomeView: View {
 
 	private var signInButtonView: some View {
 		Button {
-			print("TO DO!!!")
+			onSignInPressed()
 		} label: {
 			AppTextView(text: Constants.accountMessage)
 				.padding(Constants.spacing)
@@ -100,6 +112,10 @@ struct WelcomeView: View {
 private extension WelcomeView {
 	func onAppButtonPressed() {
 		isNavigating.toggle()
+	}
+	
+	func onSignInPressed() {
+		showSignInView = true
 	}
 }
 

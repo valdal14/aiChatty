@@ -21,7 +21,7 @@ struct ImageLoaderView: View {
 
 	var imageContainer: some View {
 		Rectangle()
-			.opacity(0)
+			.opacity(0.001)
 			.overlay { asyncImageView }
 			.clipped()
 	}
